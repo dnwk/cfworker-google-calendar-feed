@@ -1,0 +1,8 @@
+name = "calendar"
+type = "webpack"
+route = ''
+zone_id = 'cfdce39f5a901cb6ecb354a990f16543'
+account_id = '2666eadfd92855e4de4c8b131d19654c'
+usage_model = ''
+compatibility_flags = []
+workers_dev = true
