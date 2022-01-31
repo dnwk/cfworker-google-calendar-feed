@@ -7,12 +7,15 @@ export async function handleRequest(request) {
   let timeMin
   let timeMax
   let timezone = url.searchParams.get("tz")
+  let defaultcalendar = "whitman.edu_84adp395fp9ep82m84os5713ic@group.calendar.google.com"
+  let apikey
+  
   if (!timezone) {
     timezone = "America/Los_Angeles"
   }
   let calendar = url.searchParams.get("calendar")
    if (!calendar) {
-    calendar = "whitman.edu_84adp395fp9ep82m84os5713ic@group.calendar.google.com"
+    calendar = defaultcalendar
   }
   let singleEvents = url.searchParams.get("singleEvents")
   if (!singleEvents) {
@@ -31,7 +34,6 @@ export async function handleRequest(request) {
   }
   let sourceurl = "https://www.googleapis.com/calendar/v3/calendars/"
   let urlsuffix = "/events?showDeleted=false&"
-  let apikey = ""
   let response = await fetch (sourceurl+calendar+urlsuffix+"timeMin="+ timeMin +"&timeMax=" + timeMax + "&singleEvents="+singleEvents+"&key="+apikey)
 
   return new Response(response.body, {
